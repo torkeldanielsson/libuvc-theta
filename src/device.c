@@ -1363,6 +1363,7 @@ uvc_error_t uvc_parse_vs_format_mjpeg(uvc_streaming_interface_t *stream_if,
 uvc_error_t uvc_parse_vs_format_h264(uvc_streaming_interface_t *stream_if,
 					     const unsigned char *block,
 					     size_t block_size) {
+  static char h264guid[]={'H',  '2',  '6',  '4', 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71}
   UVC_ENTER();
 
   uvc_format_desc_t *format = calloc(1, sizeof(*format));
@@ -1370,7 +1371,7 @@ uvc_error_t uvc_parse_vs_format_h264(uvc_streaming_interface_t *stream_if,
   format->parent = stream_if;
   format->bDescriptorSubtype = block[2];
   format->bFormatIndex = block[3];
-  memcpy(format->fourccFormat, "H264", 4);
+  memcpy(format->fourccFormat, h264guid, 16);
   format->bmFlags = 0;
   format->bBitsPerPixel = 0;
   format->bDefaultFrameIndex = block[5];
