@@ -27,3 +27,6 @@ Then you can start them with `./example` and `./uvc_test` respectively. Note tha
 The documentation for `libuvc` can currently be found at https://int80k.com/libuvc/doc/.
 
 Happy hacking!
+
+## To use with THETA V/Z1
+Please refer to the sample at https://github.com/ricohapi/libuvc-theta-sample
